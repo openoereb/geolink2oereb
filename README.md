@@ -1,7 +1,7 @@
 OEREBlex geoLink Formatter
 ==========================
 
-|![license](https://img.shields.io/pypi/l/geolink2oereb.svg)|![python version](https://img.shields.io/pypi/pyversions/geolink2oereb.svg)|![format](https://img.shields.io/pypi/format/geolink2oereb.svg)|![status](https://img.shields.io/pypi/status/geolink2oereb.svg)|build status| |coverage report| |dependencies| |code quality|
+|![license](https://img.shields.io/pypi/l/geolink2oereb.svg)|![python version](https://img.shields.io/pypi/pyversions/geolink2oereb.svg)|![format](https://img.shields.io/pypi/format/geolink2oereb.svg)|![status](https://img.shields.io/pypi/status/geolink2oereb.svg)|![build status](https://github.com/openoereb/geolink2oereb/actions/workflows/ci.yml/badge.svg)| |coverage report| |dependencies| |code quality|
 
 This is a small library, meant to be used in combination with OEREBlex. It is capable of parsing a received
 geoLink response (XML) and converting it to multiple formats, such as HTML, which can be styled for
