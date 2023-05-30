@@ -31,6 +31,10 @@ check: git-attributes lint test
 .PHONY: clean
 clean:
 	rm -rf .venv
+	rm -rf .pytest_cache
+	rm -rf build
+	rm -rf dist
+	rm -f .coverage
 
 
 .PHONY: build
@@ -40,6 +44,7 @@ build: .venv/requirements.timestamp
 
 .PHONY: deploy
 deploy: .venv/requirements.timestamp
+	# .venv/bin/twine upload -r testpypi dist/*
 	.venv/bin/python setup.py clean sdist bdist_wheel upload
 
 

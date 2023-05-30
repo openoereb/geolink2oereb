@@ -23,10 +23,10 @@ jobs:
           CI: true
         run: |
           python -V
-          pip install -r requirements.txt
-          git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
-          flake8
-          py.test -vv --cov-config .coveragerc --cov geolink2oereb tests
+          make .venv/requirements.timestamp
+          make git-attributes
+          make lint
+          make test
       - name: Send coverage
         run: |
           bash <(curl -s https://codecov.io/bash)
