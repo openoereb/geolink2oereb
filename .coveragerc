@@ -1,3 +1,5 @@
 [run]
+source =
+    src/geolink2oereb
 omit =
-    geolink2oereb/tests/*
+    src/geolink2oereb/lib/interfaces/oerebkrmtrsfr/v2_0/classes.py

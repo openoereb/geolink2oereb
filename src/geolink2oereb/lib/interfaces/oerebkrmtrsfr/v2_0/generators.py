@@ -1,8 +1,10 @@
-from pyramid_oereb.core.records.law_status import LawStatusRecord
-
-from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import OeREBKRM_V2_0_Dokumente_Dokument, \
-    LocalisationCH_V1_MultilingualText, LocalisationCH_V1_LocalisedText, LocalisedTextType,\
-    OeREBKRM_V2_0_Amt_Amt
+from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
+    OeREBKRM_V2_0_Dokumente_Dokument,
+    LocalisationCH_V1_MultilingualText,
+    LocalisationCH_V1_LocalisedText,
+    LocalisedTextType,
+    OeREBKRM_V2_0_Amt_Amt,
+)
 
 
 def multilingual_text_from_dict(multilingual_dict):
@@ -31,7 +33,7 @@ def office_record_to_oerebkrmtrsfr(office_record):
         Strasse=office_record.street,
         Hausnr=office_record.number,
         PLZ=office_record.postal_code,
-        Ort=office_record.city
+        Ort=office_record.city,
     )
 
 
@@ -57,5 +59,5 @@ def document_record_to_oerebkrmtrsfr(document_record):
         Rechtsstatus=document_record.law_status.code,
         publiziertAb=document_record.published_from,
         publiziertBis=document_record.published_until,
-        ZustaendigeStelle=office_record_to_oerebkrmtrsfr(document_record.responsible_office)
+        ZustaendigeStelle=office_record_to_oerebkrmtrsfr(document_record.responsible_office),
     )
