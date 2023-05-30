@@ -16,9 +16,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'src')))
 
 
 # -- General configuration ------------------------------------------------
@@ -30,6 +30,9 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
+
+
 from geolink2oereb import __version__
 
 
@@ -55,9 +58,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'OEREBlex geoLink Formatter'
-copyright = '2017, Amt für Geoinformation, Kanton Basel-Landschaft'
-author = 'Karsten Deininger'
+project = 'geolink2oereb'
+copyright = '2023, RUDERT-GEOINFORMATIK'
+author = 'Clemens Rudert'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -109,7 +112,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'OEREBlexgeoLinkFormatterdoc'
+htmlhelp_basename = 'Geolink2Oerebdoc'
 
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False
@@ -139,8 +142,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'OEREBlexgeoLinkFormatter.tex', u'OEREBlex geoLink Formatter Documentation',
-     u'Karsten Deininger', 'manual'),
+    (master_doc, 'Geolink2Oerebdoc.tex', u'geolink2oereb Documentation',
+     u'Clemens Rudert', 'manual'),
 ]
 
 
@@ -149,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'oereblexgeolinkformatter', u'OEREBlex geoLink Formatter Documentation',
+    (master_doc, 'geolink2oereb', u'geolink2oereb Documentation',
      [author], 1)
 ]
 
@@ -160,8 +163,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'OEREBlexgeoLinkFormatter', u'OEREBlex geoLink Formatter Documentation',
-     author, 'OEREBlexgeoLinkFormatter', 'One line description of project.',
+    (master_doc, 'geolink2oereb', u'geolink2oereb Documentation',
+     author, 'geolink2oereb', 'One line description of project.',
      'Miscellaneous'),
 ]
 
