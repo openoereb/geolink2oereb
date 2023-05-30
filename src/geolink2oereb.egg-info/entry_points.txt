@@ -1,2 +1,0 @@
-[console_scripts]
-load_documents = geolink2oereb.cli.load_documents

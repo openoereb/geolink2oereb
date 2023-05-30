@@ -9,5 +9,6 @@
 /dist/
 /doc/build/
 /geolink2oereb.egg-info/
+src/geolink2oereb.egg-info
 __pycache__
 *.pyc

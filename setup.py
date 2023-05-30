@@ -1,12 +1,9 @@
 import re
-from glob import glob
 import os
-from os.path import splitext, basename
 
+from glob import glob
+from os.path import splitext, basename
 from setuptools import setup, find_packages
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join('src')))
-from geolink2oereb import __version__
 
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.md')) as f:
@@ -27,7 +24,7 @@ tests_require = [
 
 setup(
     name='geolink2oereb',
-    version=__version__,
+    version='0.0.1',
     description='Transforms a geolink to OeREBKRMtrsfr_V2_0 document entities',
     license='BSD',
     long_description='{readme}\n\n{changelog}'.format(readme=readme, changelog=changelog),
