@@ -29,8 +29,6 @@ jobs:
           make git-attributes
           make lint
           make test
-      - name: Send coverage
-        run: |
           bash <(curl -s https://codecov.io/bash)
 
   deploy-dev:
