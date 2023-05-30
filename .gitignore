@@ -1,0 +1,13 @@
+/.idea/
+/.venv/
+/.coverage
+/.coverage.*
+/.cache/
+/.tox/
+/.pytest_cache/
+/build/
+/dist/
+/doc/build/
+/geolink2oereb.egg-info/
+__pycache__
+*.pyc

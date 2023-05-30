@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: geolink2oereb
+Version: 1.0.0
+Summary: Transforms a geolink to OeREBKRMtrsfr_V2_0 document entities
+Home-page: https://github.com/openoereb/geolink2oereb
+Author: Clemens Rudert
+Author-email: rudert-geoinformatik@posteo.ch
+License: BSD
+Keywords: oereb lex geolink formatter html OeREBKRMtrsfr_V2_0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: recommend
+Provides-Extra: no-version
+Provides-Extra: testing
+License-File: LICENSE
+
+OEREBlex geoLink Formatter
+==========================
+
+|license| |python version| |format| |status| |build status| |coverage report| |dependencies| |code quality|
+
+This is a small library, meant to be used in combination with OEREBlex. It is capable of parsing a received
+geoLink response (XML) and converting it to multiple formats, such as HTML, which can be styled for
+presentation.
+
+For detailed information, please refer to the online documentation:
+
+https://openoereb.github.io/geolink_formatter/
+
+.. |license| image:: https://img.shields.io/pypi/l/geolink_formatter.svg
+   :target: https://pypi.org/project/geolink_formatter/
+.. |python version| image:: https://img.shields.io/pypi/pyversions/geolink_formatter.svg
+   :target: https://pypi.org/project/geolink_formatter/
+.. |format| image:: https://img.shields.io/pypi/format/geolink_formatter.svg
+   :target: https://pypi.org/project/geolink_formatter/
+.. |status| image:: https://img.shields.io/pypi/status/geolink_formatter.svg
+   :target: https://pypi.org/project/geolink_formatter/
+.. |build status| image:: https://travis-ci.org/openoereb/geolink_formatter.svg?branch=master
+   :target: https://travis-ci.org/openoereb/geolink_formatter
+.. |coverage report| image:: https://codecov.io/gh/openoereb/geolink_formatter/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/openoereb/geolink_formatter
+.. |dependencies| image:: https://img.shields.io/librariesio/github/openoereb/geolink_formatter.svg
+   :target: https://libraries.io/github/openoereb/geolink_formatter
+.. |code quality| image:: https://api.codacy.com/project/badge/Grade/d2bb03f17bf3438cb295c0b5ea131ac8
+   :target: https://www.codacy.com/app/openoereb/geolink_formatter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=openoereb/geolink_formatter&amp;utm_campaign=Badge_Grade
+
+
+# Changelog
+
+## 1.0.0
+
+Supported GEO-Link API version: 20170214 (v1.0.0)
+
+- Initial version

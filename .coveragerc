@@ -1,0 +1,3 @@
+[run]
+omit =
+    geolink2oereb/tests/*

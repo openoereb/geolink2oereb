@@ -1,0 +1,2 @@
+This is a small library, meant to be used in combination with *OEREBlex*. It is capable of parsing a received
+*geoLink* response (XML) and transforming it to the OeREBKRMtrsfr structure for further usage.
