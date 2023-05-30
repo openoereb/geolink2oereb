@@ -4,6 +4,8 @@ import os
 from os.path import splitext, basename
 
 from setuptools import setup, find_packages
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join('src')))
 from geolink2oereb import __version__
 
 here = os.path.abspath(os.path.dirname(__file__))
