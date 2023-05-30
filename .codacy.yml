@@ -1,0 +1,3 @@
+---
+exclude_paths:
+  - src/geolink2oereb/lib/interfaces/oerebkrmtrsfr/v2_0/classes.py
