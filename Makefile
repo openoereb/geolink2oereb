@@ -21,7 +21,7 @@ lint: .venv/requirements.timestamp
 
 .PHONY: test
 test: .venv/requirements.timestamp
-	.venv/bin/py.test -vv --cov-config .coveragerc --cov src/geolink2oereb tests
+	.venv/bin/py.test -vv --cov-config .coveragerc --cov src/geolink2oereb --cov-report=xml:coverage.xml tests
 
 
 .PHONY: check

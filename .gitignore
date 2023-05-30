@@ -12,3 +12,4 @@
 src/geolink2oereb.egg-info
 __pycache__
 *.pyc
+coverage.xml
