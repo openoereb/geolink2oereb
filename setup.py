@@ -24,7 +24,7 @@ tests_require = [
 
 setup(
     name='geolink2oereb',
-    version='0.1.0',
+    version='0.1.1',
     description='Transforms a geolink to OeREBKRMtrsfr_V2_0 document entities',
     license='BSD',
     long_description='{readme}\n\n{changelog}'.format(readme=readme, changelog=changelog),
