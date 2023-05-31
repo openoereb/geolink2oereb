@@ -56,7 +56,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'load_documents = geolink2oereb.cli.load_documents'
+            'load_documents = geolink2oereb.cli:load_documents'
         ]
     }
 )
