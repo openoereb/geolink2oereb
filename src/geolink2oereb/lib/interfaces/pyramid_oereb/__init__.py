@@ -1,7 +1,7 @@
 import logging
 from pyramid_oereb.core.records.law_status import LawStatusRecord
 from pyramid_oereb.core.config import Config
-from src.geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
+from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     OeREBKRM_V2_0_DokumentTyp,
 )
 from pyramid_oereb.core.records.document_types import DocumentTypeRecord
