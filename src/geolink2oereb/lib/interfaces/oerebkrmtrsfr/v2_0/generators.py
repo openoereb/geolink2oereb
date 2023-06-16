@@ -1,3 +1,4 @@
+import logging
 from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     OeREBKRM_V2_0_Dokumente_Dokument,
     LocalisationCH_V1_MultilingualText,
@@ -11,6 +12,16 @@ from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     TextImWebType,
     OeREBKRM_V2_0_MultilingualUri
 )
+
+logging.basicConfig(level="DEBUG", format="%(asctime)s [%(levelname)s] %(message)s")
+
+
+def fix_url(url):
+    if not url.startswith('http'):
+        new_url = 'https://{}'.format(url)
+        logging.info(f"Fixing url from {url} to {new_url}")
+        return new_url
+    return url
 
 
 def multilingual_text_from_dict(multilingual_dict):
@@ -30,7 +41,7 @@ def multilingual_uri_from_dict(multilingual_dict):
     localized_texts = LocalisedTextType86()
     for language in multilingual_dict:
         localized_texts.OeREBKRM_V2_0_LocalisedUri.append(
-            OeREBKRM_V2_0_LocalisedUri(language, multilingual_dict[language])
+            OeREBKRM_V2_0_LocalisedUri(language, fix_url(multilingual_dict[language]))
         )
     return TextImWebType(OeREBKRM_V2_0_MultilingualUri(localized_texts))
 
