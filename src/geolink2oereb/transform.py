@@ -1,3 +1,4 @@
+from uuid import uuid4
 from geolink2oereb.lib.interfaces.pyramid_oereb import load
 from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators import (
     document_record_to_oerebkrmtrsfr,
@@ -76,3 +77,6 @@ def run_batch(
             c2ctemplate_style,
         )
     return gathered
+
+
+run_batch([4305,4304], 'ch.Planungszonen', '/home/kalle/projects/rudert-geoinformatik/geolink2oereb/geolink2oereb/config_gr.yaml', 'pyramid_oereb')

@@ -1,9 +1,11 @@
+import uuid
 from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     OeREBKRM_V2_0_Dokumente_Dokument,
     LocalisationCH_V1_MultilingualText,
     LocalisationCH_V1_LocalisedText,
     LocalisedTextType,
     OeREBKRM_V2_0_Amt_Amt,
+    ZustaendigeStelleType
 )
 
 
@@ -26,7 +28,7 @@ def office_record_to_oerebkrmtrsfr(office_record):
     Returns:
         geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt
     """
-    return OeREBKRM_V2_0_Amt_Amt(
+    amt = OeREBKRM_V2_0_Amt_Amt(
         Name=multilingual_text_from_dict(office_record.name),
         AmtImWeb=multilingual_text_from_dict(office_record.office_at_web),
         UID=office_record.uid,
@@ -37,6 +39,8 @@ def office_record_to_oerebkrmtrsfr(office_record):
         PLZ=office_record.postal_code,
         Ort=office_record.city,
     )
+    amt.set_TID(str(amt))
+    return amt
 
 
 def document_record_to_oerebkrmtrsfr(document_record):
@@ -46,10 +50,10 @@ def document_record_to_oerebkrmtrsfr(document_record):
         document_record (pyramid_oereb.core.records.documents.DocumentRecord): The record to translate.
 
     Returns:
-        geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument
+        (geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt, geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument)
     """
-
-    return OeREBKRM_V2_0_Dokumente_Dokument(
+    amt = office_record_to_oerebkrmtrsfr(document_record.responsible_office)
+    dokument = OeREBKRM_V2_0_Dokumente_Dokument(
         Typ=document_record.document_type.code,
         Titel=multilingual_text_from_dict(document_record.title),
         Abkuerzung=multilingual_text_from_dict(document_record.abbreviation),
@@ -61,5 +65,7 @@ def document_record_to_oerebkrmtrsfr(document_record):
         Rechtsstatus=document_record.law_status.code,
         publiziertAb=document_record.published_from,
         publiziertBis=document_record.published_until,
-        ZustaendigeStelle=office_record_to_oerebkrmtrsfr(document_record.responsible_office),
+        ZustaendigeStelle=ZustaendigeStelleType(REF=str(amt))
     )
+    dokument.set_TID(str(dokument))
+    return dokument, amt
