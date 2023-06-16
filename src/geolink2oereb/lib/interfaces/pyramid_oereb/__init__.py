@@ -15,6 +15,11 @@ __version__ = "1.0.0"
 
 
 class OEREBlexSourceCustom(OEREBlexSource):
+    # comletely skip federal documents because they should be added via official
+    # sources: https://models.geo.admin.ch/V_D/OeREB/OeREBKRM_V2_0_Gesetze.xml
+    # TODO: add french identifier of federal docs
+    filter_federal_documents = ['Bund', 'Cancelleria federale', 'Confederaziun']
+
     def _get_document_title(self, document, current_file, language):
         """
         Starting with V2, pyramid_oereb uses the file title instead of the document title by default.
@@ -38,6 +43,27 @@ class OEREBlexSourceCustom(OEREBlexSource):
             user_title = document.title
 
         return {language: "{user_title}".format(user_title=user_title)}
+
+    def _get_document_records(self, document, language):
+        """
+        Converts the received documents into records. This subclass filters configured objects.
+
+        Args:
+            document (geolink_formatter.entity.Document): The geoLink document to be returned as document
+                record.
+            language (str): The language of the returned documents.
+
+        Returns:
+            list of pyramid_oereb.core.records.documents.DocumentRecord: The converted record.
+        """
+        if document.federal_level:
+            if document.federal_level in self.filter_federal_documents:
+                logging.info(
+                    f'filtering {document} because its federal level is '
+                    f'in the filter list {self.filter_federal_documents}'
+                )
+                return []
+        return super(OEREBlexSourceCustom, self)._get_document_records(document, language)
 
 
 def oerebkrm_v2_0_dokument_typ_2_document_type_records():
