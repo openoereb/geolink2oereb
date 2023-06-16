@@ -128,3 +128,6 @@ def assign_uuids(unique_dokumente, unique_aemter):
         amt.set_TID(new_amt_uuid)
         uuid_aemter.append(amt)
     return uuid_dokumente, uuid_aemter
+
+unique_dokumente, unique_aemter = unify_gathered(run_batch([4305,4304], 'ch.Planungszonen', '/home/kalle/projects/rudert-geoinformatik/geolink2oereb/geolink2oereb/config_gr.yaml', 'pyramid_oereb'))
+assign_uuids(unique_dokumente, unique_aemter)

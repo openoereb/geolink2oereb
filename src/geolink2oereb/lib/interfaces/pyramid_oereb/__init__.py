@@ -18,7 +18,7 @@ class OEREBlexSourceCustom(OEREBlexSource):
     # comletely skip federal documents because they should be added via official
     # sources: https://models.geo.admin.ch/V_D/OeREB/OeREBKRM_V2_0_Gesetze.xml
     # TODO: add french identifier of federal docs
-    filter_federal_documents = ['Bund', 'Cancelleria federale', 'Confederaziun']
+    filter_federal_documents = ['Bund', 'Cancelleria federale', 'Confederaziun', 'Confederazione']
 
     def _get_document_title(self, document, current_file, language):
         """
