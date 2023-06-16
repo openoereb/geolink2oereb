@@ -11,7 +11,6 @@ from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     TextImWebType,
     OeREBKRM_V2_0_MultilingualUri
 )
-from io import StringIO
 
 
 def multilingual_text_from_dict(multilingual_dict):
