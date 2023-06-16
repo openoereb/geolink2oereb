@@ -1,4 +1,3 @@
-import uuid
 from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     OeREBKRM_V2_0_Dokumente_Dokument,
     LocalisationCH_V1_MultilingualText,
@@ -49,7 +48,8 @@ def document_record_to_oerebkrmtrsfr(document_record):
         document_record (pyramid_oereb.core.records.documents.DocumentRecord): The record to translate.
 
     Returns:
-        (geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt, geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument)
+        (geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt,
+            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument)
     """
     amt = office_record_to_oerebkrmtrsfr(document_record.responsible_office)
     dokument = OeREBKRM_V2_0_Dokumente_Dokument(
