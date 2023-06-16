@@ -47,7 +47,7 @@ def run_batch(
     pyramid_oereb_config_path,
     section,
     source_class_path="geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom",
-    c2ctemplate_style=False,
+    c2ctemplate_style=False
 ):
     """
     Lads documents from ÖREBlex and transforms it to OeREBKRMtrsfr objects.
@@ -77,3 +77,49 @@ def run_batch(
             c2ctemplate_style,
         )
     return gathered
+
+
+def unify_gathered(gathered):
+    """
+
+    Args:
+        gathered ([(geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt, geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument)]):
+
+    Returns:
+        ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt], [geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument])
+    """
+    unique_amt_tids = []
+    unique_amt = []
+    unique_dokument_tids = []
+    unique_dokument = []
+    for dokument, amt in gathered:
+        if str(amt) not in unique_amt_tids:
+            unique_amt_tids.append(str(amt))
+            unique_amt.append(amt)
+        if dokument.TID not in unique_dokument_tids:
+            unique_dokument_tids.append(dokument.TID)
+            unique_dokument.append(dokument)
+    return unique_dokument, unique_amt
+
+
+def assign_uuids(unique_dokumente, unique_aemter):
+    """
+
+    Args:
+        unique_dokumente ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument]):
+        unique_aemter ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt]):
+
+    Returns:
+        ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt], [geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument])
+    """
+    uuid_aemter = []
+    uuid_dokumente = []
+    for amt in unique_aemter:
+        new_amt_uuid = str(uuid4())
+        for dokument in unique_dokumente:
+            if dokument.ZustaendigeStelle.REF == str(amt):
+                dokument.ZustaendigeStelle.set_REF(new_amt_uuid)
+                uuid_dokumente.append(dokument)
+        amt.set_TID(new_amt_uuid)
+        uuid_aemter.append(amt)
+    return uuid_dokumente, uuid_aemter

@@ -39,7 +39,6 @@ def office_record_to_oerebkrmtrsfr(office_record):
         PLZ=office_record.postal_code,
         Ort=office_record.city,
     )
-    amt.set_TID(str(amt))
     return amt
 
 
