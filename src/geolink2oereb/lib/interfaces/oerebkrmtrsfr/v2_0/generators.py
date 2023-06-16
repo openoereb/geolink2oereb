@@ -8,6 +8,8 @@ from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
 
 
 def multilingual_text_from_dict(multilingual_dict):
+    if multilingual_dict is None:
+        return multilingual_dict
     localized_texts = LocalisedTextType()
     for language in multilingual_dict:
         localized_texts.LocalisationCH_V1_LocalisedText.append(
