@@ -50,7 +50,7 @@ def document_record_to_oerebkrmtrsfr(document_record):
     return OeREBKRM_V2_0_Dokumente_Dokument(
         Typ=document_record.document_type.code,
         Titel=multilingual_text_from_dict(document_record.title),
-        Abkuerzung=document_record.abbreviation,
+        Abkuerzung=multilingual_text_from_dict(document_record.abbreviation),
         OffizielleNr=multilingual_text_from_dict(document_record.official_number),
         NurInGemeinde=document_record.only_in_municipality,
         TextImWeb=multilingual_text_from_dict(document_record.text_at_web),
