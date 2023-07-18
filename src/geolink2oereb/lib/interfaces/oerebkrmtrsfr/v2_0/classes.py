@@ -11,10 +11,10 @@
 #   ('--member-specs', 'dict')
 #
 # Command line arguments:
-#   /home/kalle/projects/rudert-geoinformatik/openoereb/mgdm2oereb/mgdm2oereb_pavel/doc/fed/OeREBKRMtrsfr_V2_0.xsd
+#   OeREBKRMtrsfr_V2_0.xsd
 #
 # Command line:
-#   /home/kalle/.local/bin/generateDS -o "classes.py" --create-mandatory-children --member-specs="dict" /home/kalle/projects/rudert-geoinformatik/openoereb/mgdm2oereb/mgdm2oereb_pavel/doc/fed/OeREBKRMtrsfr_V2_0.xsd
+#   generateDS -o "classes.py" --create-mandatory-children --member-specs="dict" OeREBKRMtrsfr_V2_0.xsd
 #
 # Current working directory (os.getcwd()):
 #   2_0

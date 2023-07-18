@@ -8,7 +8,6 @@ logging.basicConfig(level="DEBUG", format="%(asctime)s [%(levelname)s] %(message
 
 log = logging.getLogger(__name__)
 
-
 def geolink2oereb():
     parser = optparse.OptionParser(
         usage="usage: %prog [options]",
