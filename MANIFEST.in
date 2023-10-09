@@ -1,4 +1,0 @@
-include README.rst
-include CHANGELOG
-include setup.cfg
-recursive-exclude tests *.*

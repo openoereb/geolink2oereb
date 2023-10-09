@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators &mdash; geolink2oereb  documentation</title>
+      <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../index.html" class="icon icon-home">
+            geolink2oereb
+          </a>
+              <div class="version">
+                0.1.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../basics.html">Basic info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../geolink2oereb.html">Module <em>transform</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interfaces.html">Interfaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">geolink2oereb</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+
+<div class="clearfix"></div>
+
+<p>
+    <a href="https://github.com/openoereb/geolink2oereb/blob/master/LICENSE" target="_blank">
+        <img alt="license" src="https://img.shields.io/pypi/l/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="python version" src="https://img.shields.io/pypi/pyversions/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="format" src="https://img.shields.io/pypi/format/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="status" src="https://img.shields.io/pypi/status/geolink2oereb.svg" />
+    </a>
+    <a href="https://github.com/openoereb/geolink2oereb/tree/master" target="_blank">
+        <img alt="build status" src="https://travis-ci.org/openoereb/geolink2oereb.svg?branch=master" />
+    </a>
+    <a href="https://codecov.io/gh/openoereb/geolink2oereb" target="_blank">
+        <img alt="coverage report" src="https://codecov.io/gh/openoereb/geolink2oereb/branch/master/graph/badge.svg" />
+    </a>
+    <a href="https://libraries.io/github/openoereb/geolink2oereb" target="_blank">
+        <img alt="dependencies" src="https://img.shields.io/librariesio/github/openoereb/geolink2oereb.svg" />
+    </a>
+    <a href="https://www.codacy.com/app/openoereb/geolink2oereb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=openoereb/geolink2oereb&amp;utm_campaign=Badge_Grade" target="_blank">
+        <img alt="dependencies" src="https://api.codacy.com/project/badge/Grade/d2bb03f17bf3438cb295c0b5ea131ac8" />
+    </a>
+</p>
+
+      <li><a href="../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators</li>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This interface offers methods to access python classes matching the ``OeREBKRMtrsfr_V2_0`` INTERLIS model. It</span>
+<span class="sd">is used mainly for translation and handling between ``pyramid_oereb`` and ``OeREBKRMtrsfr_V2_0``.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">OeREBKRM_V2_0_Dokumente_Dokument</span><span class="p">,</span>
+    <span class="n">LocalisationCH_V1_MultilingualText</span><span class="p">,</span>
+    <span class="n">LocalisationCH_V1_LocalisedText</span><span class="p">,</span>
+    <span class="n">LocalisedTextType</span><span class="p">,</span>
+    <span class="n">OeREBKRM_V2_0_Amt_Amt</span><span class="p">,</span>
+    <span class="n">ZustaendigeStelleType</span><span class="p">,</span>
+    <span class="n">TitelType</span><span class="p">,</span>
+    <span class="n">LocalisedTextType86</span><span class="p">,</span>
+    <span class="n">OeREBKRM_V2_0_LocalisedUri</span><span class="p">,</span>
+    <span class="n">TextImWebType</span><span class="p">,</span>
+    <span class="n">OeREBKRM_V2_0_MultilingualUri</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="fix_url"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.fix_url">[docs]</a><span class="k">def</span> <span class="nf">fix_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper method to hotfix an often occurring problem with urls not being valid in the ili sense. The URLs</span>
+<span class="sd">    out of ÖREBlex are missing the http/https part often. So we try to fix this on the fly.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        url (str): The URL string which might be fixed.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The maybe fixed URL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">):</span>
+        <span class="n">new_url</span> <span class="o">=</span> <span class="s1">&#39;https://</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fixing url from </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">new_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_url</span>
+    <span class="k">return</span> <span class="n">url</span></div>
+
+
+<div class="viewcode-block" id="multilingual_text_from_dict"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.multilingual_text_from_dict">[docs]</a><span class="k">def</span> <span class="nf">multilingual_text_from_dict</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Produces a MultilingualText object out of a dict in the form:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        {</span>
+<span class="sd">          &quot;de&quot;: &quot;Test&quot;,</span>
+<span class="sd">          &quot;it&quot;: &quot;Testo&quot;</span>
+<span class="sd">        }</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        multilingual_dict (dict or None): The definition of the multilingual element or None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.TitelType</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">multilingual_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">multilingual_dict</span>
+    <span class="n">localized_texts</span> <span class="o">=</span> <span class="n">LocalisedTextType</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">multilingual_dict</span><span class="p">:</span>
+        <span class="n">localized_texts</span><span class="o">.</span><span class="n">LocalisationCH_V1_LocalisedText</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">LocalisationCH_V1_LocalisedText</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">multilingual_dict</span><span class="p">[</span><span class="n">language</span><span class="p">])</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">TitelType</span><span class="p">(</span><span class="n">LocalisationCH_V1_MultilingualText</span><span class="p">(</span><span class="n">localized_texts</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="multilingual_uri_from_dict"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.multilingual_uri_from_dict">[docs]</a><span class="k">def</span> <span class="nf">multilingual_uri_from_dict</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Produces a MultilingualText object out of a dict in the form:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        {</span>
+<span class="sd">          &quot;de&quot;: &quot;Test&quot;,</span>
+<span class="sd">          &quot;it&quot;: &quot;Testo&quot;</span>
+<span class="sd">        }</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        multilingual_dict (dict or None): The definition of the multilingual element or None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.TextImWebType</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">multilingual_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">multilingual_dict</span>
+    <span class="n">localized_texts</span> <span class="o">=</span> <span class="n">LocalisedTextType86</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">multilingual_dict</span><span class="p">:</span>
+        <span class="n">localized_texts</span><span class="o">.</span><span class="n">OeREBKRM_V2_0_LocalisedUri</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">OeREBKRM_V2_0_LocalisedUri</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">fix_url</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">[</span><span class="n">language</span><span class="p">]))</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">TextImWebType</span><span class="p">(</span><span class="n">OeREBKRM_V2_0_MultilingualUri</span><span class="p">(</span><span class="n">localized_texts</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="office_record_to_oerebkrmtrsfr"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.office_record_to_oerebkrmtrsfr">[docs]</a><span class="k">def</span> <span class="nf">office_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">office_record</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Translates a ``pyramid_oereb`` office record object to an OeREBKRM_V2_0_Amt_Amt object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        office_record (pyramid_oereb.core.records.office.OfficeRecord): The office record to translate.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">amt</span> <span class="o">=</span> <span class="n">OeREBKRM_V2_0_Amt_Amt</span><span class="p">(</span>
+        <span class="n">Name</span><span class="o">=</span><span class="n">multilingual_text_from_dict</span><span class="p">(</span><span class="n">office_record</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+        <span class="n">AmtImWeb</span><span class="o">=</span><span class="n">multilingual_uri_from_dict</span><span class="p">(</span><span class="n">office_record</span><span class="o">.</span><span class="n">office_at_web</span><span class="p">),</span>
+        <span class="n">UID</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+        <span class="n">Zeile1</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">line1</span><span class="p">,</span>
+        <span class="n">Zeile2</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">line2</span><span class="p">,</span>
+        <span class="n">Strasse</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">street</span><span class="p">,</span>
+        <span class="n">Hausnr</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+        <span class="n">PLZ</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">postal_code</span><span class="p">,</span>
+        <span class="n">Ort</span><span class="o">=</span><span class="n">office_record</span><span class="o">.</span><span class="n">city</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">amt</span></div>
+
+
+<div class="viewcode-block" id="document_record_to_oerebkrmtrsfr"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.document_record_to_oerebkrmtrsfr">[docs]</a><span class="k">def</span> <span class="nf">document_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">document_record</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Translates a ``pyramid_oereb`` document record object to an OeREBKRM_V2_0_Dokumente_Dokument object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        document_record (pyramid_oereb.core.records.documents.DocumentRecord): The record to translate.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (tuple): tuple containing:</span>
+
+<span class="sd">            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:</span>
+<span class="sd">                The office which belongs to the document (responsible office).</span>
+<span class="sd">            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</span>
+<span class="sd">                The document.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">amt</span> <span class="o">=</span> <span class="n">office_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">document_record</span><span class="o">.</span><span class="n">responsible_office</span><span class="p">)</span>
+    <span class="n">dokument</span> <span class="o">=</span> <span class="n">OeREBKRM_V2_0_Dokumente_Dokument</span><span class="p">(</span>
+        <span class="n">Typ</span><span class="o">=</span><span class="n">document_record</span><span class="o">.</span><span class="n">document_type</span><span class="o">.</span><span class="n">code</span><span class="p">,</span>
+        <span class="n">Titel</span><span class="o">=</span><span class="n">multilingual_text_from_dict</span><span class="p">(</span><span class="n">document_record</span><span class="o">.</span><span class="n">title</span><span class="p">),</span>
+        <span class="n">Abkuerzung</span><span class="o">=</span><span class="n">multilingual_text_from_dict</span><span class="p">(</span><span class="n">document_record</span><span class="o">.</span><span class="n">abbreviation</span><span class="p">),</span>
+        <span class="n">OffizielleNr</span><span class="o">=</span><span class="n">multilingual_text_from_dict</span><span class="p">(</span><span class="n">document_record</span><span class="o">.</span><span class="n">official_number</span><span class="p">),</span>
+        <span class="n">NurInGemeinde</span><span class="o">=</span><span class="n">document_record</span><span class="o">.</span><span class="n">only_in_municipality</span><span class="p">,</span>
+        <span class="n">TextImWeb</span><span class="o">=</span><span class="n">multilingual_uri_from_dict</span><span class="p">(</span><span class="n">document_record</span><span class="o">.</span><span class="n">text_at_web</span><span class="p">),</span>
+        <span class="c1"># Dokument=multilingual_text_from_dict(document_record.file),</span>
+        <span class="n">AuszugIndex</span><span class="o">=</span><span class="n">document_record</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">Rechtsstatus</span><span class="o">=</span><span class="n">document_record</span><span class="o">.</span><span class="n">law_status</span><span class="o">.</span><span class="n">code</span><span class="p">,</span>
+        <span class="n">publiziertAb</span><span class="o">=</span><span class="n">document_record</span><span class="o">.</span><span class="n">published_from</span><span class="p">,</span>
+        <span class="n">publiziertBis</span><span class="o">=</span><span class="n">document_record</span><span class="o">.</span><span class="n">published_until</span><span class="p">,</span>
+        <span class="n">ZustaendigeStelle</span><span class="o">=</span><span class="n">ZustaendigeStelleType</span><span class="p">(</span><span class="n">REF</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="n">dokument</span><span class="o">.</span><span class="n">set_TID</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dokument</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">dokument</span><span class="p">,</span> <span class="n">amt</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, RUDERT-GEOINFORMATIK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+     
+
+    <div style="float: right">
+        <a href="https://github.com/openoereb/geolink2oereb">
+            View on GitHub
+            <img alt="View on GitHub" width="23" src="../../../../../../_static/GitHub-Mark-32px.png" />
+        </a>
+    </div>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

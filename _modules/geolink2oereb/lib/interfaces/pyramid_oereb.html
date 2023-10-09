@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geolink2oereb.lib.interfaces.pyramid_oereb &mdash; geolink2oereb  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            geolink2oereb
+          </a>
+              <div class="version">
+                0.1.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../basics.html">Basic info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../geolink2oereb.html">Module <em>transform</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces.html">Interfaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">geolink2oereb</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+
+<div class="clearfix"></div>
+
+<p>
+    <a href="https://github.com/openoereb/geolink2oereb/blob/master/LICENSE" target="_blank">
+        <img alt="license" src="https://img.shields.io/pypi/l/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="python version" src="https://img.shields.io/pypi/pyversions/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="format" src="https://img.shields.io/pypi/format/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="status" src="https://img.shields.io/pypi/status/geolink2oereb.svg" />
+    </a>
+    <a href="https://github.com/openoereb/geolink2oereb/tree/master" target="_blank">
+        <img alt="build status" src="https://travis-ci.org/openoereb/geolink2oereb.svg?branch=master" />
+    </a>
+    <a href="https://codecov.io/gh/openoereb/geolink2oereb" target="_blank">
+        <img alt="coverage report" src="https://codecov.io/gh/openoereb/geolink2oereb/branch/master/graph/badge.svg" />
+    </a>
+    <a href="https://libraries.io/github/openoereb/geolink2oereb" target="_blank">
+        <img alt="dependencies" src="https://img.shields.io/librariesio/github/openoereb/geolink2oereb.svg" />
+    </a>
+    <a href="https://www.codacy.com/app/openoereb/geolink2oereb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=openoereb/geolink2oereb&amp;utm_campaign=Badge_Grade" target="_blank">
+        <img alt="dependencies" src="https://api.codacy.com/project/badge/Grade/d2bb03f17bf3438cb295c0b5ea131ac8" />
+    </a>
+</p>
+
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">geolink2oereb.lib.interfaces.pyramid_oereb</li>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for geolink2oereb.lib.interfaces.pyramid_oereb</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module offers the interface to the `pyramid_oereb &lt;https://github.com/openoereb/pyramid_oereb&gt;`_ library.</span>
+<span class="sd">All usage of ``pyramid_oereb`` elements should be implemented here and proxied through this part</span>
+<span class="sd">of geolink2oereb. That makes it easier to adapt once changes occur.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pyramid_oereb.core.records.law_status</span> <span class="kn">import</span> <span class="n">LawStatusRecord</span>
+<span class="kn">from</span> <span class="nn">pyramid_oereb.core.config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">OeREBKRM_V2_0_DokumentTyp</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyramid_oereb.core.records.document_types</span> <span class="kn">import</span> <span class="n">DocumentTypeRecord</span>
+<span class="kn">from</span> <span class="nn">pyramid_oereb.contrib.data_sources.oereblex.sources.document</span> <span class="kn">import</span> <span class="n">OEREBlexSource</span>
+<span class="kn">from</span> <span class="nn">pyramid_oereb.core.views.webservice</span> <span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">pyramid.path</span> <span class="kn">import</span> <span class="n">DottedNameResolver</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
+
+
+<div class="viewcode-block" id="merge_attribute"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.merge_attribute">[docs]</a><span class="k">def</span> <span class="nf">merge_attribute</span><span class="p">(</span><span class="n">master_attribute</span><span class="p">,</span> <span class="n">merger_attribute</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A helper method to merge attributes which can be a dict or None.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        master_attribute (dict or None): The master attribute.</span>
+<span class="sd">        merger_attribute (dict or None): The merger attribute.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict or None: The merged Attribute</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">master_attribute</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">merger_attribute</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># both attributes are None, we can return None here</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">master_attribute</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">merger_attribute</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="c1"># one attribute is None the other is a dict, we return the dict</span>
+        <span class="k">return</span> <span class="n">merger_attribute</span>
+    <span class="k">if</span> <span class="n">merger_attribute</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">master_attribute</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="c1"># one attribute is None the other is a dict, we return the dict</span>
+        <span class="k">return</span> <span class="n">master_attribute</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">master_attribute</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">merger_attribute</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="c1"># both attributes are dicts, we return the merged dict</span>
+        <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">master_attribute</span><span class="p">,</span> <span class="o">**</span><span class="n">merger_attribute</span><span class="p">}</span>
+    <span class="c1"># in all other cases we simply return None</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="OEREBlexSourceCustom"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom">[docs]</a><span class="k">class</span> <span class="nc">OEREBlexSourceCustom</span><span class="p">(</span><span class="n">OEREBlexSource</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This subclass is basically used to manipulate the behaviour of the normal OEREBlexSource as it is used</span>
+<span class="sd">    in ``pyramid_oereb``.</span>
+
+<span class="sd">    Main changes are:</span>
+<span class="sd">    - adaption of _get_document_title to be able to manipulate title of documents more easy</span>
+<span class="sd">    - adaption of _get_document_records to add a filter for federal documents because they are provided</span>
+<span class="sd">      in another way and can be omitted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filter_federal_documents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A list to filter documents. It can be adopted to manipulate how the filter should work. In the default</span>
+<span class="sd">        implementation it comletely skip federal documents because they should be added via official sources:</span>
+<span class="sd">        https://models.geo.admin.ch/V_D/OeREB/OeREBKRM_V2_0_Gesetze.xml</span>
+
+<span class="sd">        The strings in the list are applied to the ``federal_level`` of a ÖEREBlex document.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of str: The filter strings which are applied to ``federal_level`` of a ÖEREBlex document.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: add french identifier of federal docs</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;Bund&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancelleria federale&#39;</span><span class="p">,</span> <span class="s1">&#39;Confederaziun&#39;</span><span class="p">,</span> <span class="s1">&#39;Confederazione&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_get_document_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">current_file</span><span class="p">,</span> <span class="n">language</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starting with V2, pyramid_oereb uses the file title instead of the document title by default.</span>
+<span class="sd">        In this project, we always want to use the document title, so this overrides that.</span>
+<span class="sd">        return {language: u&#39;{title} ({file_name})&#39;.format(title=document.title, file_name=current_file.title)}</span>
+<span class="sd">        file_name=current_file.title</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            document (geolink_formatter.entity.Document): The document entity.</span>
+<span class="sd">            current_file (geolink_formatter.entity.File): The file, which gets annotated with a title.</span>
+<span class="sd">            language (str): The language of the document title.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Title of document.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">document</span><span class="o">.</span><span class="n">doctype</span> <span class="o">==</span> <span class="s2">&quot;decree&quot;</span><span class="p">:</span>
+            <span class="n">user_title</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">title</span> <span class="o">+</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="n">current_file</span><span class="o">.</span><span class="n">_title</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_title</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">title</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="n">language</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{user_title}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user_title</span><span class="o">=</span><span class="n">user_title</span><span class="p">)}</span>
+
+    <span class="k">def</span> <span class="nf">_get_document_records</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">language</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts the received documents into records. This subclass filters configured objects.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            document (geolink_formatter.entity.Document): The geoLink document to be returned as document</span>
+<span class="sd">                record.</span>
+<span class="sd">            language (str): The language of the returned documents.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of pyramid_oereb.core.records.documents.DocumentRecord: The converted record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">document</span><span class="o">.</span><span class="n">federal_level</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">document</span><span class="o">.</span><span class="n">federal_level</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_federal_documents</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;filtering </span><span class="si">{</span><span class="n">document</span><span class="si">}</span><span class="s1"> because its federal level is &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;in the filter list </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_federal_documents</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">OEREBlexSourceCustom</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_get_document_records</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="oerebkrm_v2_0_dokument_typ_2_document_type_records"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.oerebkrm_v2_0_dokument_typ_2_document_type_records">[docs]</a><span class="k">def</span> <span class="nf">oerebkrm_v2_0_dokument_typ_2_document_type_records</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Translates all OeREBKRM_V2_0_DokumentTyp to actual DocumentTypeRecord.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of pyramid_oereb.core.records.document_types.DocumentTypeRecord</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">document_type_records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">document_type_enum</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">OeREBKRM_V2_0_DokumentTyp</span><span class="p">):</span>
+        <span class="n">document_type_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DocumentTypeRecord</span><span class="p">(</span><span class="n">document_type_enum</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">{}))</span>
+    <span class="k">return</span> <span class="n">document_type_records</span></div>
+
+
+<div class="viewcode-block" id="create_document_source"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.create_document_source">[docs]</a><span class="k">def</span> <span class="nf">create_document_source</span><span class="p">(</span>
+    <span class="n">source_config</span><span class="p">,</span> <span class="n">theme_code</span><span class="p">,</span> <span class="n">language</span><span class="p">,</span> <span class="n">oereb_lex_document_source_class</span><span class="o">=</span><span class="n">OEREBlexSource</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface method to ``pyramid_oereb``, to complete the config of the used ``pyramid_oereb`` source</span>
+<span class="sd">    with missing elements and create the actual data source.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        source_config (dict): The config dict which is used to instanciate the ÖEREBlex Source.</span>
+<span class="sd">        theme_code (str): The theme code matching the ``pyramid_oereb`` configuration.</span>
+<span class="sd">        language (str): The language code (de, it, fr, ...).</span>
+<span class="sd">        oereb_lex_document_source_class (pyramid_oereb.contrib.data_sources.oereblex.sources.document.OEREBlexSource):  # noqa: E501</span>
+<span class="sd">            The class which is used to produce the document records.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pyramid_oereb.contrib.data_sources.oereblex.sources.document.OEREBlexSource: The source to read</span>
+<span class="sd">            the documents.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">source_config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="n">theme_code</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="n">language</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">oereb_lex_document_source_class</span><span class="p">(</span><span class="o">**</span><span class="n">source_config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_document_type_code_by_extract_value"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.get_document_type_code_by_extract_value">[docs]</a><span class="k">def</span> <span class="nf">get_document_type_code_by_extract_value</span><span class="p">(</span><span class="n">theme_code</span><span class="p">,</span> <span class="n">extract_value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface method to ``pyramid_oereb``. Shortcut method to access the translation of ``document_types`` as</span>
+<span class="sd">    defined in ``pyramid_oereb`` configuration yaml.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        theme_code (str): The theme code matching the ``pyramid_oereb`` configuration.</span>
+<span class="sd">        extract_value (str): The ``document_type`` as it is expected in the extract.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        None or str: The translated ``document_type`` or None if no match was found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">lookup</span> <span class="ow">in</span> <span class="n">Config</span><span class="o">.</span><span class="n">get_document_types_lookups</span><span class="p">(</span><span class="n">theme_code</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">lookup</span><span class="p">[</span><span class="s2">&quot;extract_code&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">extract_value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lookup</span><span class="p">[</span><span class="s2">&quot;transfer_code&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="get_law_status_code_by_extract_value"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.get_law_status_code_by_extract_value">[docs]</a><span class="k">def</span> <span class="nf">get_law_status_code_by_extract_value</span><span class="p">(</span><span class="n">theme_code</span><span class="p">,</span> <span class="n">extract_value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface method to ``pyramid_oereb``. Shortcut method to access the translation of ``law_status_codes``</span>
+<span class="sd">    as defined in ``pyramid_oereb`` configuration yaml.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        theme_code (str): The theme code matching the ``pyramid_oereb`` configuration.</span>
+<span class="sd">        extract_value (str): The ``law_status_code`` as it is expected in the extract.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        None or str: The translated ``law_status_code`` or None if no match was found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">lookup</span> <span class="ow">in</span> <span class="n">Config</span><span class="o">.</span><span class="n">get_law_status_lookups</span><span class="p">(</span><span class="n">theme_code</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">lookup</span><span class="p">[</span><span class="s2">&quot;extract_code&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">extract_value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lookup</span><span class="p">[</span><span class="s2">&quot;transfer_code&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="merge_office"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.merge_office">[docs]</a><span class="k">def</span> <span class="nf">merge_office</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">merger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merge multiple ``OfficeRecords`` to one. While processing ÖREBlex there can occur different versions</span>
+<span class="sd">    of the same office in different languages. We try to solve that problem here.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        master (pyramid_oereb.core.records.office.OfficeRecord): The record all date will be added to.</span>
+<span class="sd">        merger (pyramid_oereb.core.records.office.OfficeRecord): The record all date will be taken from.</span>
+<span class="sd">    Returns (pyramid_oereb.core.records.office.OfficeRecord): the updated master record.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">master</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">office_at_web</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">office_at_web</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">office_at_web</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">master</span></div>
+
+
+<div class="viewcode-block" id="merge_document_type"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.merge_document_type">[docs]</a><span class="k">def</span> <span class="nf">merge_document_type</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">merger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merge multiple ``DocumentTypeRecord`` to one. While processing ÖREBlex there can occur different versions</span>
+<span class="sd">    of the same document type in different languages. We try to solve that problem here.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        master (pyramid_oereb.core.records.document_types.DocumentTypeRecord): The record all date will be</span>
+<span class="sd">            added to.</span>
+<span class="sd">        merger (pyramid_oereb.core.records.document_types.DocumentTypeRecord): The record all date will be</span>
+<span class="sd">            taken from.</span>
+<span class="sd">    Returns (pyramid_oereb.core.records.document_types.DocumentTypeRecord): the updated master record.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">master</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">DocumentTypeRecord</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">master</span><span class="o">.</span><span class="n">title</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="merge_document"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.merge_document">[docs]</a><span class="k">def</span> <span class="nf">merge_document</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">merger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merge multiple ``DocumentRecord`` to one. While processing ÖREBlex there can occur different versions</span>
+<span class="sd">    of the same document in different languages. We try to solve that problem here.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        master (pyramid_oereb.core.records.documents.DocumentRecord): The record all date will be added to.</span>
+<span class="sd">        merger (pyramid_oereb.core.records.documents.DocumentRecord): The record all date will be taken from.</span>
+<span class="sd">    Returns (pyramid_oereb.core.records.documents.DocumentRecord): the updated master record.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">document_type</span> <span class="o">=</span> <span class="n">merge_document_type</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">document_type</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">document_type</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">law_status</span> <span class="o">=</span> <span class="n">LawStatusRecord</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">law_status</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">master</span><span class="o">.</span><span class="n">law_status</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">responsible_office</span> <span class="o">=</span> <span class="n">merge_office</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">responsible_office</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">responsible_office</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">text_at_web</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">text_at_web</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">text_at_web</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">abbreviation</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">abbreviation</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">abbreviation</span><span class="p">)</span>
+    <span class="n">master</span><span class="o">.</span><span class="n">official_number</span> <span class="o">=</span> <span class="n">merge_attribute</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">official_number</span><span class="p">,</span> <span class="n">merger</span><span class="o">.</span><span class="n">official_number</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">master</span></div>
+
+
+<div class="viewcode-block" id="make_office_at_web_multilingual"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.make_office_at_web_multilingual">[docs]</a><span class="k">def</span> <span class="nf">make_office_at_web_multilingual</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">language</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ÖEREBlex offers multilingual elements via different URLS. With this method we combine all available</span>
+<span class="sd">    languages into one multilingual element.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        documents (list of pyramid_oereb.core.records.documents.DocumentRecord): The records to change the</span>
+<span class="sd">            office.</span>
+<span class="sd">        language (str): the language code which will be used to make it multilingual.</span>
+<span class="sd">    Returns (list of pyramid_oereb.core.records.documents.DocumentRecord): the updated records.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">responsible_office</span><span class="o">.</span><span class="n">office_at_web</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">responsible_office</span><span class="o">.</span><span class="n">office_at_web</span> <span class="o">=</span> <span class="p">{</span><span class="n">language</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">responsible_office</span><span class="o">.</span><span class="n">office_at_web</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">documents</span></div>
+
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../../../interfaces.html#geolink2oereb.lib.interfaces.pyramid_oereb.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+    <span class="n">geolink_id</span><span class="p">,</span>
+    <span class="n">theme_code</span><span class="p">,</span>
+    <span class="n">pyramid_oereb_config_path</span><span class="p">,</span>
+    <span class="n">pyramid_config_section</span><span class="p">,</span>
+    <span class="n">source_class_path</span><span class="o">=</span><span class="s2">&quot;geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom&quot;</span><span class="p">,</span>
+    <span class="n">c2ctemplate_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface method to ``pyramid_oereb``. It utilizes the lib to obtain a set of records from ÖREBlex.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        geolink_id (int): The geoLink ID (lexlink ID).</span>
+<span class="sd">        theme_code (str): The theme code matching the ``pyramid_oereb`` configuration.</span>
+<span class="sd">        pyramid_oereb_config_path (str): The configuration yaml file path.</span>
+<span class="sd">        pyramid_config_section (str): The section within the yaml file.</span>
+<span class="sd">        source_class_path (str): The point separated path to the class which is used to produce the document</span>
+<span class="sd">            records (Default: ``geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom``).</span>
+<span class="sd">        c2ctemplate_style (bool): If set to true, c2c.template library will be used</span>
+<span class="sd">            to load config file (Default: False).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of pyramid_oereb.core.records.documents.DocumentRecord: The collected and corrected</span>
+<span class="sd">            documents, with types and offices.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
+        <span class="n">pyramid_oereb_config_path</span><span class="p">,</span>
+        <span class="n">pyramid_config_section</span><span class="p">,</span>
+        <span class="n">c2ctemplate_style</span><span class="o">=</span><span class="n">c2ctemplate_style</span><span class="p">,</span>
+        <span class="n">init_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">document_types</span> <span class="o">=</span> <span class="n">oerebkrm_v2_0_dokument_typ_2_document_type_records</span><span class="p">()</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">LawStatusRecord</span><span class="p">(</span>
+        <span class="s2">&quot;inKraft&quot;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="s2">&quot;in Kraft&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;En vigueur&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;it&quot;</span><span class="p">:</span> <span class="s2">&quot;In vigore&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rm&quot;</span><span class="p">:</span> <span class="s2">&quot;En vigur&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;In force&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">law_status</span> <span class="o">=</span> <span class="p">[</span><span class="n">lst</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+
+    <span class="n">resolver</span> <span class="o">=</span> <span class="n">DottedNameResolver</span><span class="p">()</span>
+    <span class="n">oereblex_source_class</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">source_class_path</span><span class="p">)</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">create_document_source</span><span class="p">(</span>
+        <span class="n">Config</span><span class="o">.</span><span class="n">get_oereblex_config</span><span class="p">(),</span>
+        <span class="n">theme_code</span><span class="p">,</span>
+        <span class="n">Config</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;default_language&quot;</span><span class="p">],</span>
+        <span class="n">oereb_lex_document_source_class</span><span class="o">=</span><span class="n">oereblex_source_class</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">master_language</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">get_language</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">set_language</span><span class="p">(</span><span class="n">master_language</span><span class="p">)</span>
+    <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">geolink_id</span><span class="p">,</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">make_office_at_web_multilingual</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">master_language</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">Config</span><span class="o">.</span><span class="n">get_language</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">language</span> <span class="o">!=</span> <span class="n">master_language</span><span class="p">:</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">set_language</span><span class="p">(</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">geolink_id</span><span class="p">,</span> <span class="n">lst</span><span class="p">)</span>
+            <span class="n">mergers</span> <span class="o">=</span> <span class="n">make_office_at_web_multilingual</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mergers</span><span class="p">):</span>
+                <span class="n">merge_document</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">record</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="n">new_code</span> <span class="o">=</span> <span class="n">get_document_type_code_by_extract_value</span><span class="p">(</span><span class="n">theme_code</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">document_type</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Old document code: </span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">document_type</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New document code: </span><span class="si">{</span><span class="n">new_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">document_type</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">new_code</span>
+
+        <span class="n">new_code</span> <span class="o">=</span> <span class="n">get_law_status_code_by_extract_value</span><span class="p">(</span><span class="n">theme_code</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">law_status</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Old law status code: </span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">law_status</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New law status code: </span><span class="si">{</span><span class="n">new_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">law_status</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">new_code</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, RUDERT-GEOINFORMATIK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+     
+
+    <div style="float: right">
+        <a href="https://github.com/openoereb/geolink2oereb">
+            View on GitHub
+            <img alt="View on GitHub" width="23" src="../../../../_static/GitHub-Mark-32px.png" />
+        </a>
+    </div>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

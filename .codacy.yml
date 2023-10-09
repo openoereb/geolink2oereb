@@ -1,8 +1,0 @@
-engines:
-  bandit:
-    exclude_paths:
-      - "doc/source/conf.py"
-      - "src/geolink2oereb/lib/interfaces/oerebkrmtrsfr/v2_0/classes.py"
-
-exclude_paths:
-  - "src/geolink2oereb/lib/interfaces/oerebkrmtrsfr/v2_0/classes.py"
