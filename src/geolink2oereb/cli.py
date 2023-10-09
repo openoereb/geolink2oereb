@@ -1,7 +1,7 @@
 import optparse
 import logging
-import uuid
 
+from io import StringIO
 from geolink2oereb.transform import run
 
 logging.basicConfig(level="DEBUG", format="%(asctime)s [%(levelname)s] %(message)s")
@@ -19,7 +19,7 @@ def geolink2oereb():
         "--geolink_id",
         dest="geolink_id",
         metavar="GEOLINKID",
-        type="integer",
+        type="int",
         help="The the ID to load the documents for.",
     )
     parser.add_option(
@@ -66,8 +66,9 @@ def geolink2oereb():
         "-o",
         "--outfile-path",
         dest="outfile_path",
-        default=f"/tmp/{str(uuid.uuid4())}.xml",
-        help="The absolute path where the output will be written to.",
+        default=None,
+        help="The absolute path where the output will be written to."
+             "If omitted, the output will be printed as command output to the console.",
     )
 
     options, args = parser.parse_args()
@@ -79,6 +80,17 @@ def geolink2oereb():
         options.source_class_path,
         options.c2ctemplate_style,
     )
-    with open(options.outfile_path) as fh:
-        for element in oerebkrmtrsfr:
-            fh.write(str(element))
+    out_string_list = []
+
+    for lexlink_group in oerebkrmtrsfr:
+        for element in lexlink_group:
+            output = StringIO()
+            element.export(output, 0, namespacedef_=None)
+            out_string_list.append(output.getvalue())
+            output.close()
+    out_string = '\n'.join(out_string_list)
+    if options.outfile_path is None:
+        print(out_string)
+    else:
+        with open(options.outfile_path, mode="w+") as fh:
+            fh.write(out_string)

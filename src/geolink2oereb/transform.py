@@ -1,3 +1,10 @@
+"""
+The basic entry module. It offers methods to be used right away:
+
+* run
+* run_batch
+"""
+
 from uuid import uuid4
 from geolink2oereb.lib.interfaces.pyramid_oereb import load
 from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators import (
@@ -13,8 +20,7 @@ def run(
     source_class_path="geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom",
     c2ctemplate_style=False,
 ):
-    """
-    Lads documents from ÖREBlex and transforms it to OeREBKRMtrsfr objects.
+    """Loads documents from one ÖREBlex geolink and transforms it to OeREBKRMtrsfr objects.
 
     Args:
         geolink_id (int): The lexlink/geolink of the ÖREBlex document to download.
@@ -50,7 +56,7 @@ def run_batch(
     c2ctemplate_style=False
 ):
     """
-    Lads documents from ÖREBlex and transforms it to OeREBKRMtrsfr objects.
+    Loads documents from multiple ÖREBlex geolinks and transforms it to OeREBKRMtrsfr objects.
 
     Args:
         geolink_id (list of int): A list of the lexlinks/geolinks of the ÖREBlex document to download.
@@ -80,15 +86,21 @@ def run_batch(
 
 
 def unify_gathered(gathered):
-    """
+    """add docs
 
     Args:
-        gathered ([(geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt,
-            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument)]):
-
+        gathered (list):
+            consists of (tuple):
+                geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:
+                    The Dokument
+                geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:
+                    The Amt
     Returns:
-        ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt],
-            [geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument])
+        (tuple): tuple containing:
+            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:
+                The list of unified Dokumente.
+            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:
+                The list of unified Ämter.
     """
     unique_amt_tids = []
     unique_amt = []
@@ -106,15 +118,20 @@ def unify_gathered(gathered):
 
 def assign_uuids(unique_dokumente, unique_aemter):
     """
+    Assigns UUIDs to a list of unique Aemter and Dokumente. It needs the lists to be in predefined order
+    to match the correct objects.
 
     Args:
-        unique_dokumente
-            ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument]):
-        unique_aemter ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt]):
-
+        unique_dokumente (list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument):  # noqa: E501
+            List of unique dokumente where each dokument should receive a UUID.
+        unique_aemter (list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt):
+            List of unique aemter where each amt should receive a UUID.
     Returns:
-        ([geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt],
-            [geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument])
+        (tuple): tuple containing:
+            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:
+                The list of unique Dokumente where each Dokument has a valid UUID assigned.
+            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt):
+                The list of unique Ämter where each Amt has a valid UUID assigned.
     """
     uuid_aemter = []
     uuid_dokumente = []
