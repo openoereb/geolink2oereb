@@ -1,4 +1,5 @@
-Module *geolink2oereb*
-==========================
+Module *transform*
+==================
 
-.. automodule:: geolink2oereb
+.. automodule:: geolink2oereb.transform
+   :members:

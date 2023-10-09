@@ -1,3 +1,8 @@
+"""
+This interface offers methods to access python classes matching the ``OeREBKRMtrsfr_V2_0`` INTERLIS model. It
+is used mainly for translation and handling between ``pyramid_oereb`` and ``OeREBKRMtrsfr_V2_0``.
+"""
+
 import logging
 from geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes import (
     OeREBKRM_V2_0_Dokumente_Dokument,
@@ -17,6 +22,16 @@ logging.basicConfig(level="DEBUG", format="%(asctime)s [%(levelname)s] %(message
 
 
 def fix_url(url):
+    """
+    Helper method to hotfix an often occurring problem with urls not being valid in the ili sense. The URLs
+    out of ÖREBlex are missing the http/https part often. So we try to fix this on the fly.
+
+    Args:
+        url (str): The URL string which might be fixed.
+
+    Returns:
+        The maybe fixed URL.
+    """
     if not url.startswith('http'):
         new_url = 'https://{}'.format(url)
         logging.info(f"Fixing url from {url} to {new_url}")
@@ -25,6 +40,23 @@ def fix_url(url):
 
 
 def multilingual_text_from_dict(multilingual_dict):
+    """
+    Produces a MultilingualText object out of a dict in the form:
+
+    .. code-block:: python
+
+        {
+          "de": "Test",
+          "it": "Testo"
+        }
+
+    Args:
+        multilingual_dict (dict or None): The definition of the multilingual element or None.
+
+    Returns:
+        geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.TitelType
+    """
+
     if multilingual_dict is None:
         return multilingual_dict
     localized_texts = LocalisedTextType()
@@ -36,6 +68,22 @@ def multilingual_text_from_dict(multilingual_dict):
 
 
 def multilingual_uri_from_dict(multilingual_dict):
+    """
+    Produces a MultilingualText object out of a dict in the form:
+
+    .. code-block:: python
+
+        {
+          "de": "Test",
+          "it": "Testo"
+        }
+
+    Args:
+        multilingual_dict (dict or None): The definition of the multilingual element or None.
+
+    Returns:
+        geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.TextImWebType
+    """
     if multilingual_dict is None:
         return multilingual_dict
     localized_texts = LocalisedTextType86()
@@ -48,6 +96,7 @@ def multilingual_uri_from_dict(multilingual_dict):
 
 def office_record_to_oerebkrmtrsfr(office_record):
     """
+    Translates a ``pyramid_oereb`` office record object to an OeREBKRM_V2_0_Amt_Amt object.
 
     Args:
         office_record (pyramid_oereb.core.records.office.OfficeRecord): The office record to translate.
@@ -70,13 +119,18 @@ def office_record_to_oerebkrmtrsfr(office_record):
 
 def document_record_to_oerebkrmtrsfr(document_record):
     """
+    Translates a ``pyramid_oereb`` document record object to an OeREBKRM_V2_0_Dokumente_Dokument object.
 
     Args:
         document_record (pyramid_oereb.core.records.documents.DocumentRecord): The record to translate.
 
     Returns:
-        (geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt,
-            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument)
+        (tuple): tuple containing:
+
+            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:
+                The office which belongs to the document (responsible office).
+            geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:
+                The document.
     """
     amt = office_record_to_oerebkrmtrsfr(document_record.responsible_office)
     dokument = OeREBKRM_V2_0_Dokumente_Dokument(

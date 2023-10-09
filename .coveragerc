@@ -1,5 +1,13 @@
 [run]
 source =
-    src/geolink2oereb
+    src
 omit =
     src/geolink2oereb/lib/interfaces/oerebkrmtrsfr/v2_0/classes.py
+    src/geolink2oereb/cli.py
+    setup.py
+    tests/*.py
+[report]
+skip_covered = True
+show_missing = True
+[xml]
+output = coverage.xml

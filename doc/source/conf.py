@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# OEREBlex geoLink Formatter documentation build configuration file, created by
-# sphinx-quickstart on Tue May 16 13:06:47 2017.
+# geolink2oereb documentation build configuration file, created by
+# sphinx-quickstart on Tue Oct 08 13:06:47 2023.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -37,12 +37,14 @@ from geolink2oereb import __version__
 
 
 extensions = [
+    'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autosectionlabel'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -175,3 +177,6 @@ autoclass_content = 'both'
 
 # Napoleon configuration
 napoleon_numpy_docstring = False
+napoleon_google_docstring = True
+napoleon_include_init_with_doc = True
+napoleon_preprocess_types = True

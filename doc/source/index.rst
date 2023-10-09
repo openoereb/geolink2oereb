@@ -1,4 +1,3 @@
-
 OEREBlex geolink2oereb
 ======================
 
@@ -6,9 +5,10 @@ OEREBlex geolink2oereb
    :maxdepth: 2
    :hidden:
 
+   basics
+   cli
    geolink2oereb
-
-.. include:: description.rst
+   interfaces
 
 
 Indices and tables
@@ -17,6 +17,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
-run with `documents = run_batch([4304,4305,4305], 'ch.Planungszonen', 'config_gr.yaml', 'pyramid_oereb')`
