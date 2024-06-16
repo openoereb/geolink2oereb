@@ -48,13 +48,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Basic info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Module <em>transform</em></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#geolink2oereb.transform.assign_uuids"><code class="docutils literal notranslate"><span class="pre">assign_uuids()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#geolink2oereb.transform.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#geolink2oereb.transform.run_batch"><code class="docutils literal notranslate"><span class="pre">run_batch()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#geolink2oereb.transform.unify_gathered"><code class="docutils literal notranslate"><span class="pre">unify_gathered()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module <em>transform</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
 </ul>
 
@@ -112,127 +106,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-geolink2oereb.transform">
-<span id="module-transform"></span><h1>Module <em>transform</em><a class="headerlink" href="#module-geolink2oereb.transform" title="Permalink to this heading"></a></h1>
-<p>The basic entry module. It offers methods to be used right away:</p>
-<ul class="simple">
-<li><p>run</p></li>
-<li><p>run_batch</p></li>
-</ul>
-<dl class="py function">
-<dt class="sig sig-object py" id="geolink2oereb.transform.assign_uuids">
-<span class="sig-prename descclassname"><span class="pre">geolink2oereb.transform.</span></span><span class="sig-name descname"><span class="pre">assign_uuids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_dokumente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_aemter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/transform.html#assign_uuids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.transform.assign_uuids" title="Permalink to this definition"></a></dt>
-<dd><p>Assigns UUIDs to a list of unique Aemter and Dokumente. It needs the lists to be in predefined order
-to match the correct objects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>unique_dokumente</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument</span></code>) – # noqa: E501
-List of unique dokumente where each dokument should receive a UUID.</p></li>
-<li><p><strong>unique_aemter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt</span></code>) – List of unique aemter where each amt should receive a UUID.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>tuple containing:</dt><dd><dl class="simple">
-<dt>list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</dt><dd><p>The list of unique Dokumente where each Dokument has a valid UUID assigned.</p>
-</dd>
-<dt>list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt):</dt><dd><p>The list of unique Ämter where each Amt has a valid UUID assigned.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(tuple)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geolink2oereb.transform.run">
-<span class="sig-prename descclassname"><span class="pre">geolink2oereb.transform.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geolink_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pyramid_oereb_config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_class_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2ctemplate_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/transform.html#run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.transform.run" title="Permalink to this definition"></a></dt>
-<dd><p>Loads documents from one ÖREBlex geolink and transforms it to OeREBKRMtrsfr objects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geolink_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The lexlink/geolink of the ÖREBlex document to download.</p></li>
-<li><p><strong>theme_code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The theme code which is used to read the ÖREBlex specific config from the
-pyramid_oereb yml configuration.</p></li>
-<li><p><strong>pyramid_oereb_config_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The absolute path to the pyramid_oereb yml configuration file.</p></li>
-<li><p><strong>section</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The section inside the yml configuration where the pyramid_oereb configuration can be
-found.</p></li>
-<li><p><strong>source_class_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The pythonic dotted path to the ÖREBlex Source class definition which is used
-to construct pyramid_oereb DocumentRecords.</p></li>
-<li><p><strong>c2ctemplate_style</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If the C2C way of parsing a yml should be used or not.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geolink2oereb.transform.run_batch">
-<span class="sig-prename descclassname"><span class="pre">geolink2oereb.transform.</span></span><span class="sig-name descname"><span class="pre">run_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geolink_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pyramid_oereb_config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_class_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2ctemplate_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/transform.html#run_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.transform.run_batch" title="Permalink to this definition"></a></dt>
-<dd><p>Loads documents from multiple ÖREBlex geolinks and transforms it to OeREBKRMtrsfr objects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>geolink_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">int</span></code>) – A list of the lexlinks/geolinks of the ÖREBlex document to download.</p></li>
-<li><p><strong>theme_code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The theme code which is used to read the ÖREBlex specific config from the
-pyramid_oereb yml configuration.</p></li>
-<li><p><strong>pyramid_oereb_config_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The absolute path to the pyramid_oereb yml configuration file.</p></li>
-<li><p><strong>section</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The section inside the yml configuration where the pyramid_oereb configuration can be
-found.</p></li>
-<li><p><strong>source_class_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The pythonic dotted path to the ÖREBlex Source class definition which is used
-to construct pyramid_oereb DocumentRecords.</p></li>
-<li><p><strong>c2ctemplate_style</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If the C2C way of parsing a yml should be used or not.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="geolink2oereb.transform.unify_gathered">
-<span class="sig-prename descclassname"><span class="pre">geolink2oereb.transform.</span></span><span class="sig-name descname"><span class="pre">unify_gathered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gathered</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/transform.html#unify_gathered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.transform.unify_gathered" title="Permalink to this definition"></a></dt>
-<dd><p>add docs</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>gathered</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – <dl class="simple">
-<dt>consists of (tuple):</dt><dd><dl class="simple">
-<dt>geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</dt><dd><p>The Dokument</p>
-</dd>
-<dt>geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:</dt><dd><p>The Amt</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>tuple containing:</dt><dd><dl class="simple">
-<dt>list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</dt><dd><p>The list of unified Dokumente.</p>
-</dd>
-<dt>list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:</dt><dd><p>The list of unified Ämter.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(tuple)</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="module-transform">
+<h1>Module <em>transform</em><a class="headerlink" href="#module-transform" title="Permalink to this heading"></a></h1>
 </section>
 
 
