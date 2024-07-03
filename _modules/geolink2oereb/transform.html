@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geolink2oereb.transform &mdash; geolink2oereb  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            geolink2oereb
+          </a>
+              <div class="version">
+                0.1.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics.html">Basic info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geolink2oereb.html">Module <em>transform</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces.html">Interfaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">geolink2oereb</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+
+<div class="clearfix"></div>
+
+<p>
+    <a href="https://github.com/openoereb/geolink2oereb/blob/master/LICENSE" target="_blank">
+        <img alt="license" src="https://img.shields.io/pypi/l/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="python version" src="https://img.shields.io/pypi/pyversions/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="format" src="https://img.shields.io/pypi/format/geolink2oereb.svg" />
+    </a>
+    <a href="https://pypi.org/project/geolink2oereb/" target="_blank">
+        <img alt="status" src="https://img.shields.io/pypi/status/geolink2oereb.svg" />
+    </a>
+    <a href="https://github.com/openoereb/geolink2oereb/tree/master" target="_blank">
+        <img alt="build status" src="https://travis-ci.org/openoereb/geolink2oereb.svg?branch=master" />
+    </a>
+    <a href="https://codecov.io/gh/openoereb/geolink2oereb" target="_blank">
+        <img alt="coverage report" src="https://codecov.io/gh/openoereb/geolink2oereb/branch/master/graph/badge.svg" />
+    </a>
+    <a href="https://libraries.io/github/openoereb/geolink2oereb" target="_blank">
+        <img alt="dependencies" src="https://img.shields.io/librariesio/github/openoereb/geolink2oereb.svg" />
+    </a>
+    <a href="https://www.codacy.com/app/openoereb/geolink2oereb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=openoereb/geolink2oereb&amp;utm_campaign=Badge_Grade" target="_blank">
+        <img alt="dependencies" src="https://api.codacy.com/project/badge/Grade/d2bb03f17bf3438cb295c0b5ea131ac8" />
+    </a>
+</p>
+
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">geolink2oereb.transform</li>
+
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for geolink2oereb.transform</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The basic entry module. It offers methods to be used right away:</span>
+
+<span class="sd">* run</span>
+<span class="sd">* run_batch</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="kn">from</span> <span class="nn">geolink2oereb.lib.interfaces.pyramid_oereb</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">document_record_to_oerebkrmtrsfr</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../geolink2oereb.html#geolink2oereb.transform.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
+    <span class="n">geolink_id</span><span class="p">,</span>
+    <span class="n">theme_code</span><span class="p">,</span>
+    <span class="n">pyramid_oereb_config_path</span><span class="p">,</span>
+    <span class="n">section</span><span class="p">,</span>
+    <span class="n">source_class_path</span><span class="o">=</span><span class="s2">&quot;geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom&quot;</span><span class="p">,</span>
+    <span class="n">c2ctemplate_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads documents from one ÖREBlex geolink and transforms it to OeREBKRMtrsfr objects.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        geolink_id (int): The lexlink/geolink of the ÖREBlex document to download.</span>
+<span class="sd">        theme_code (str): The theme code which is used to read the ÖREBlex specific config from the</span>
+<span class="sd">            pyramid_oereb yml configuration.</span>
+<span class="sd">        pyramid_oereb_config_path (str): The absolute path to the pyramid_oereb yml configuration file.</span>
+<span class="sd">        section (str): The section inside the yml configuration where the pyramid_oereb configuration can be</span>
+<span class="sd">            found.</span>
+<span class="sd">        source_class_path (str): The pythonic dotted path to the ÖREBlex Source class definition which is used</span>
+<span class="sd">            to construct pyramid_oereb DocumentRecords.</span>
+<span class="sd">        c2ctemplate_style (bool): If the C2C way of parsing a yml should be used or not.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">document_records</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span>
+        <span class="n">geolink_id</span><span class="p">,</span>
+        <span class="n">theme_code</span><span class="p">,</span>
+        <span class="n">pyramid_oereb_config_path</span><span class="p">,</span>
+        <span class="n">section</span><span class="p">,</span>
+        <span class="n">source_class_path</span><span class="p">,</span>
+        <span class="n">c2ctemplate_style</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">document_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">document_records</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="run_batch"><a class="viewcode-back" href="../../geolink2oereb.html#geolink2oereb.transform.run_batch">[docs]</a><span class="k">def</span> <span class="nf">run_batch</span><span class="p">(</span>
+    <span class="n">geolink_ids</span><span class="p">,</span>
+    <span class="n">theme_code</span><span class="p">,</span>
+    <span class="n">pyramid_oereb_config_path</span><span class="p">,</span>
+    <span class="n">section</span><span class="p">,</span>
+    <span class="n">source_class_path</span><span class="o">=</span><span class="s2">&quot;geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom&quot;</span><span class="p">,</span>
+    <span class="n">c2ctemplate_style</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads documents from multiple ÖREBlex geolinks and transforms it to OeREBKRMtrsfr objects.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        geolink_id (list of int): A list of the lexlinks/geolinks of the ÖREBlex document to download.</span>
+<span class="sd">        theme_code (str): The theme code which is used to read the ÖREBlex specific config from the</span>
+<span class="sd">            pyramid_oereb yml configuration.</span>
+<span class="sd">        pyramid_oereb_config_path (str): The absolute path to the pyramid_oereb yml configuration file.</span>
+<span class="sd">        section (str): The section inside the yml configuration where the pyramid_oereb configuration can be</span>
+<span class="sd">            found.</span>
+<span class="sd">        source_class_path (str): The pythonic dotted path to the ÖREBlex Source class definition which is used</span>
+<span class="sd">            to construct pyramid_oereb DocumentRecords.</span>
+<span class="sd">        c2ctemplate_style (bool): If the C2C way of parsing a yml should be used or not.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gathered</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">geolink_id</span> <span class="ow">in</span> <span class="n">geolink_ids</span><span class="p">:</span>
+        <span class="n">gathered</span> <span class="o">=</span> <span class="n">gathered</span> <span class="o">+</span> <span class="n">run</span><span class="p">(</span>
+            <span class="n">geolink_id</span><span class="p">,</span>
+            <span class="n">theme_code</span><span class="p">,</span>
+            <span class="n">pyramid_oereb_config_path</span><span class="p">,</span>
+            <span class="n">section</span><span class="p">,</span>
+            <span class="n">source_class_path</span><span class="p">,</span>
+            <span class="n">c2ctemplate_style</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">gathered</span></div>
+
+
+<div class="viewcode-block" id="unify_gathered"><a class="viewcode-back" href="../../geolink2oereb.html#geolink2oereb.transform.unify_gathered">[docs]</a><span class="k">def</span> <span class="nf">unify_gathered</span><span class="p">(</span><span class="n">gathered</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;add docs</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gathered (list):</span>
+<span class="sd">            consists of (tuple):</span>
+<span class="sd">                geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</span>
+<span class="sd">                    The Dokument</span>
+<span class="sd">                geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:</span>
+<span class="sd">                    The Amt</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (tuple): tuple containing:</span>
+<span class="sd">            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</span>
+<span class="sd">                The list of unified Dokumente.</span>
+<span class="sd">            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt:</span>
+<span class="sd">                The list of unified Ämter.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">unique_amt_tids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">unique_amt</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">unique_dokument_tids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">unique_dokument</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">dokument</span><span class="p">,</span> <span class="n">amt</span> <span class="ow">in</span> <span class="n">gathered</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_amt_tids</span><span class="p">:</span>
+            <span class="n">unique_amt_tids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">amt</span><span class="p">))</span>
+            <span class="n">unique_amt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dokument</span><span class="o">.</span><span class="n">TID</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_dokument_tids</span><span class="p">:</span>
+            <span class="n">unique_dokument_tids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dokument</span><span class="o">.</span><span class="n">TID</span><span class="p">)</span>
+            <span class="n">unique_dokument</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dokument</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">unique_dokument</span><span class="p">,</span> <span class="n">unique_amt</span></div>
+
+
+<div class="viewcode-block" id="assign_uuids"><a class="viewcode-back" href="../../geolink2oereb.html#geolink2oereb.transform.assign_uuids">[docs]</a><span class="k">def</span> <span class="nf">assign_uuids</span><span class="p">(</span><span class="n">unique_dokumente</span><span class="p">,</span> <span class="n">unique_aemter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Assigns UUIDs to a list of unique Aemter and Dokumente. It needs the lists to be in predefined order</span>
+<span class="sd">    to match the correct objects.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        unique_dokumente (list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument):  # noqa: E501</span>
+<span class="sd">            List of unique dokumente where each dokument should receive a UUID.</span>
+<span class="sd">        unique_aemter (list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt):</span>
+<span class="sd">            List of unique aemter where each amt should receive a UUID.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (tuple): tuple containing:</span>
+<span class="sd">            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Dokumente_Dokument:</span>
+<span class="sd">                The list of unique Dokumente where each Dokument has a valid UUID assigned.</span>
+<span class="sd">            list of geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes.OeREBKRM_V2_0_Amt_Amt):</span>
+<span class="sd">                The list of unique Ämter where each Amt has a valid UUID assigned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">uuid_aemter</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">uuid_dokumente</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">amt</span> <span class="ow">in</span> <span class="n">unique_aemter</span><span class="p">:</span>
+        <span class="n">new_amt_uuid</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">dokument</span> <span class="ow">in</span> <span class="n">unique_dokumente</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">dokument</span><span class="o">.</span><span class="n">ZustaendigeStelle</span><span class="o">.</span><span class="n">REF</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">amt</span><span class="p">):</span>
+                <span class="n">dokument</span><span class="o">.</span><span class="n">ZustaendigeStelle</span><span class="o">.</span><span class="n">set_REF</span><span class="p">(</span><span class="n">new_amt_uuid</span><span class="p">)</span>
+                <span class="n">uuid_dokumente</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dokument</span><span class="p">)</span>
+                <span class="n">dokument</span><span class="o">.</span><span class="n">set_TID</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()))</span>
+        <span class="n">amt</span><span class="o">.</span><span class="n">set_TID</span><span class="p">(</span><span class="n">new_amt_uuid</span><span class="p">)</span>
+        <span class="n">uuid_aemter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">uuid_dokumente</span><span class="p">,</span> <span class="n">uuid_aemter</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, RUDERT-GEOINFORMATIK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+     
+
+    <div style="float: right">
+        <a href="https://github.com/openoereb/geolink2oereb">
+            View on GitHub
+            <img alt="View on GitHub" width="23" src="../../_static/GitHub-Mark-32px.png" />
+        </a>
+    </div>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
