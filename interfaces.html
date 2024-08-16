@@ -49,7 +49,23 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geolink2oereb.html">Module <em>transform</em></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Interfaces</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pyramid-oereb"><em>pyramid_oereb</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-geolink2oereb.lib.interfaces.pyramid_oereb"><em>pyramid_oereb</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom"><code class="docutils literal notranslate"><span class="pre">OEREBlexSourceCustom</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom.filter_federal_documents"><code class="docutils literal notranslate"><span class="pre">OEREBlexSourceCustom.filter_federal_documents</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.create_document_source"><code class="docutils literal notranslate"><span class="pre">create_document_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.get_document_type_code_by_extract_value"><code class="docutils literal notranslate"><span class="pre">get_document_type_code_by_extract_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.get_law_status_code_by_extract_value"><code class="docutils literal notranslate"><span class="pre">get_law_status_code_by_extract_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.make_office_at_web_multilingual"><code class="docutils literal notranslate"><span class="pre">make_office_at_web_multilingual()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_attribute"><code class="docutils literal notranslate"><span class="pre">merge_attribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_document"><code class="docutils literal notranslate"><span class="pre">merge_document()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_document_type"><code class="docutils literal notranslate"><span class="pre">merge_document_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_office"><code class="docutils literal notranslate"><span class="pre">merge_office()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.pyramid_oereb.oerebkrm_v2_0_dokument_typ_2_document_type_records"><code class="docutils literal notranslate"><span class="pre">oerebkrm_v2_0_dokument_typ_2_document_type_records()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators"><em>OeREBKRMtrsfr_V2_0 generators</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.document_record_to_oerebkrmtrsfr"><code class="docutils literal notranslate"><span class="pre">document_record_to_oerebkrmtrsfr()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.fix_url"><code class="docutils literal notranslate"><span class="pre">fix_url()</span></code></a></li>
@@ -403,8 +419,262 @@
              
   <section id="interfaces">
 <h1>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading"></a></h1>
-<section id="pyramid-oereb">
-<h2><em>pyramid_oereb</em><a class="headerlink" href="#pyramid-oereb" title="Permalink to this heading"></a></h2>
+<section id="module-geolink2oereb.lib.interfaces.pyramid_oereb">
+<span id="pyramid-oereb"></span><h2><em>pyramid_oereb</em><a class="headerlink" href="#module-geolink2oereb.lib.interfaces.pyramid_oereb" title="Permalink to this heading"></a></h2>
+<p>This module offers the interface to the <a class="reference external" href="https://github.com/openoereb/pyramid_oereb">pyramid_oereb</a> library.
+All usage of <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> elements should be implemented here and proxied through this part
+of geolink2oereb. That makes it easier to adapt once changes occur.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">OEREBlexSourceCustom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#OEREBlexSourceCustom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom" title="Permalink to this definition"></a></dt>
+<dd><p>This subclass is basically used to manipulate the behaviour of the normal OEREBlexSource as it is used
+in <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code>.</p>
+<p>Main changes are:
+- adaption of _get_document_title to be able to manipulate title of documents more easy
+- adaption of _get_document_records to add a filter for federal documents because they are provided</p>
+<blockquote>
+<div><p>in another way and can be omitted.</p>
+</div></blockquote>
+<p>Creates a new OEREBlex document source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">uri</span></code>) – Host URL of OEREBlex (without /api/…).</p></li>
+<li><p><strong>version</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The used geoLink schema version. Default is 1.2.2</p></li>
+<li><p><strong>pass_version</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – True to pass version in URL, false otherwise. Defaults is false.</p></li>
+<li><p><strong>language</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The language of the received data.</p></li>
+<li><p><strong>canton</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Canton code used for the documents.</p></li>
+<li><p><strong>mapping</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span> <span class="pre">of</span> <span class="pre">str</span></code>) – Mapping for optional attributes.</p></li>
+<li><p><strong>related_decree_as_main</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Add related decrees directly to the public law restriction.</p></li>
+<li><p><strong>related_notice_as_main</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Add related notices directly to the public law restriction.</p></li>
+<li><p><strong>proxy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span> <span class="pre">of</span> <span class="pre">uri</span></code>) – Optional proxy configuration for HTTP and/or HTTPS.</p></li>
+<li><p><strong>auth</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span> <span class="pre">of</span> <span class="pre">str</span></code>) – Optional credentials for basic authentication. Requires <cite>username</cite>
+and <cite>password</cite> to be defined.</p></li>
+<li><p><strong>validation</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Turn XML validation on/off. Default is true.</p></li>
+<li><p><strong>url_param_config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">code</span> <span class="pre">and</span> <span class="pre">url_param</span></code>) – Optional url parameters to use, per plr code</p></li>
+<li><p><strong>code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The official code. Regarding to the federal specifications.</p></li>
+<li><p><strong>use_prepubs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If true and the law status is not “inForce”, the prepubs URL will be
+used. Default is false.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom.filter_federal_documents">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_federal_documents</span></span><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom.filter_federal_documents" title="Permalink to this definition"></a></dt>
+<dd><p>A list to filter documents. It can be adopted to manipulate how the filter should work. In the default
+implementation it comletely skip federal documents because they should be added via official sources:
+<a class="reference external" href="https://models.geo.admin.ch/V_D/OeREB/OeREBKRM_V2_0_Gesetze.xml">https://models.geo.admin.ch/V_D/OeREB/OeREBKRM_V2_0_Gesetze.xml</a></p>
+<p>The strings in the list are applied to the <code class="docutils literal notranslate"><span class="pre">federal_level</span></code> of a ÖEREBlex document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The filter strings which are applied to <code class="docutils literal notranslate"><span class="pre">federal_level</span></code> of a ÖEREBlex document.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.create_document_source">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">create_document_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oereb_lex_document_source_class=&lt;class</span> <span class="pre">'pyramid_oereb.contrib.data_sources.oereblex.sources.document.OEREBlexSource'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#create_document_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.create_document_source" title="Permalink to this definition"></a></dt>
+<dd><p>Interface method to <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code>, to complete the config of the used <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> source
+with missing elements and create the actual data source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – The config dict which is used to instanciate the ÖEREBlex Source.</p></li>
+<li><p><strong>theme_code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The theme code matching the <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> configuration.</p></li>
+<li><p><strong>language</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The language code (de, it, fr, …).</p></li>
+<li><p><strong>oereb_lex_document_source_class</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.contrib.data_sources.oereblex.sources.document.OEREBlexSource</span></code>) – # noqa: E501
+The class which is used to produce the document records.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The source to read</dt><dd><p>the documents.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyramid_oereb.contrib.data_sources.oereblex.sources.document.OEREBlexSource</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.get_document_type_code_by_extract_value">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">get_document_type_code_by_extract_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theme_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#get_document_type_code_by_extract_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.get_document_type_code_by_extract_value" title="Permalink to this definition"></a></dt>
+<dd><p>Interface method to <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code>. Shortcut method to access the translation of <code class="docutils literal notranslate"><span class="pre">document_types</span></code> as
+defined in <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> configuration yaml.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theme_code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The theme code matching the <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> configuration.</p></li>
+<li><p><strong>extract_value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The <code class="docutils literal notranslate"><span class="pre">document_type</span></code> as it is expected in the extract.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The translated <code class="docutils literal notranslate"><span class="pre">document_type</span></code> or None if no match was found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.get_law_status_code_by_extract_value">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">get_law_status_code_by_extract_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theme_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#get_law_status_code_by_extract_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.get_law_status_code_by_extract_value" title="Permalink to this definition"></a></dt>
+<dd><p>Interface method to <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code>. Shortcut method to access the translation of <code class="docutils literal notranslate"><span class="pre">law_status_codes</span></code>
+as defined in <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> configuration yaml.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theme_code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The theme code matching the <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> configuration.</p></li>
+<li><p><strong>extract_value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The <code class="docutils literal notranslate"><span class="pre">law_status_code</span></code> as it is expected in the extract.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The translated <code class="docutils literal notranslate"><span class="pre">law_status_code</span></code> or None if no match was found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.load">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geolink_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pyramid_oereb_config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pyramid_config_section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_class_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2ctemplate_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.load" title="Permalink to this definition"></a></dt>
+<dd><p>Interface method to <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code>. It utilizes the lib to obtain a set of records from ÖREBlex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geolink_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The geoLink ID (lexlink ID).</p></li>
+<li><p><strong>theme_code</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The theme code matching the <code class="docutils literal notranslate"><span class="pre">pyramid_oereb</span></code> configuration.</p></li>
+<li><p><strong>pyramid_oereb_config_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The configuration yaml file path.</p></li>
+<li><p><strong>pyramid_config_section</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The section within the yaml file.</p></li>
+<li><p><strong>source_class_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The point separated path to the class which is used to produce the document
+records (Default: <code class="docutils literal notranslate"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.OEREBlexSourceCustom</span></code>).</p></li>
+<li><p><strong>c2ctemplate_style</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If set to true, c2c.template library will be used
+to load config file (Default: False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The collected and corrected</dt><dd><p>documents, with types and offices.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of pyramid_oereb.core.records.documents.DocumentRecord</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.make_office_at_web_multilingual">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">make_office_at_web_multilingual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#make_office_at_web_multilingual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.make_office_at_web_multilingual" title="Permalink to this definition"></a></dt>
+<dd><p>ÖEREBlex offers multilingual elements via different URLS. With this method we combine all available
+languages into one multilingual element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>documents</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">pyramid_oereb.core.records.documents.DocumentRecord</span></code>) – The records to change the
+office.</p></li>
+<li><p><strong>language</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the language code which will be used to make it multilingual.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns (list of pyramid_oereb.core.records.documents.DocumentRecord): the updated records.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.merge_attribute">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">merge_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_attribute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merger_attribute</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#merge_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_attribute" title="Permalink to this definition"></a></dt>
+<dd><p>A helper method to merge attributes which can be a dict or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>master_attribute</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span> <span class="pre">or</span> <span class="pre">None</span></code>) – The master attribute.</p></li>
+<li><p><strong>merger_attribute</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span> <span class="pre">or</span> <span class="pre">None</span></code>) – The merger attribute.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The merged Attribute</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.merge_document">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">merge_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#merge_document"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_document" title="Permalink to this definition"></a></dt>
+<dd><p>Merge multiple <code class="docutils literal notranslate"><span class="pre">DocumentRecord</span></code> to one. While processing ÖREBlex there can occur different versions
+of the same document in different languages. We try to solve that problem here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>master</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.core.records.documents.DocumentRecord</span></code>) – The record all date will be added to.</p></li>
+<li><p><strong>merger</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.core.records.documents.DocumentRecord</span></code>) – The record all date will be taken from.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns (pyramid_oereb.core.records.documents.DocumentRecord): the updated master record.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.merge_document_type">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">merge_document_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#merge_document_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_document_type" title="Permalink to this definition"></a></dt>
+<dd><p>Merge multiple <code class="docutils literal notranslate"><span class="pre">DocumentTypeRecord</span></code> to one. While processing ÖREBlex there can occur different versions
+of the same document type in different languages. We try to solve that problem here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>master</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.core.records.document_types.DocumentTypeRecord</span></code>) – The record all date will be
+added to.</p></li>
+<li><p><strong>merger</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.core.records.document_types.DocumentTypeRecord</span></code>) – The record all date will be
+taken from.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns (pyramid_oereb.core.records.document_types.DocumentTypeRecord): the updated master record.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.merge_office">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">merge_office</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#merge_office"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.merge_office" title="Permalink to this definition"></a></dt>
+<dd><p>Merge multiple <code class="docutils literal notranslate"><span class="pre">OfficeRecords</span></code> to one. While processing ÖREBlex there can occur different versions
+of the same office in different languages. We try to solve that problem here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>master</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.core.records.office.OfficeRecord</span></code>) – The record all date will be added to.</p></li>
+<li><p><strong>merger</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid_oereb.core.records.office.OfficeRecord</span></code>) – The record all date will be taken from.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns (pyramid_oereb.core.records.office.OfficeRecord): the updated master record.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geolink2oereb.lib.interfaces.pyramid_oereb.oerebkrm_v2_0_dokument_typ_2_document_type_records">
+<span class="sig-prename descclassname"><span class="pre">geolink2oereb.lib.interfaces.pyramid_oereb.</span></span><span class="sig-name descname"><span class="pre">oerebkrm_v2_0_dokument_typ_2_document_type_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/geolink2oereb/lib/interfaces/pyramid_oereb.html#oerebkrm_v2_0_dokument_typ_2_document_type_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geolink2oereb.lib.interfaces.pyramid_oereb.oerebkrm_v2_0_dokument_typ_2_document_type_records" title="Permalink to this definition"></a></dt>
+<dd><p>Translates all OeREBKRM_V2_0_DokumentTyp to actual DocumentTypeRecord.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of pyramid_oereb.core.records.document_types.DocumentTypeRecord</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators">
 <span id="oerebkrmtrsfr-v2-0-generators"></span><h2><em>OeREBKRMtrsfr_V2_0 generators</em><a class="headerlink" href="#module-geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators" title="Permalink to this heading"></a></h2>
