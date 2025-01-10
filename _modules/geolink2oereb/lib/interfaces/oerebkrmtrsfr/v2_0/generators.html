@@ -110,8 +110,8 @@
 <span class="sd">is used mainly for translation and handling between ``pyramid_oereb`` and ``OeREBKRMtrsfr_V2_0``.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.classes</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">OeREBKRM_V2_0_Dokumente_Dokument</span><span class="p">,</span>
     <span class="n">LocalisationCH_V1_MultilingualText</span><span class="p">,</span>
     <span class="n">LocalisationCH_V1_LocalisedText</span><span class="p">,</span>
@@ -128,7 +128,7 @@
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="fix_url"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.fix_url">[docs]</a><span class="k">def</span> <span class="nf">fix_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="viewcode-block" id="fix_url"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.fix_url">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">fix_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper method to hotfix an often occurring problem with urls not being valid in the ili sense. The URLs</span>
 <span class="sd">    out of ÖREBlex are missing the http/https part often. So we try to fix this on the fly.</span>
@@ -146,7 +146,7 @@
     <span class="k">return</span> <span class="n">url</span></div>
 
 
-<div class="viewcode-block" id="multilingual_text_from_dict"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.multilingual_text_from_dict">[docs]</a><span class="k">def</span> <span class="nf">multilingual_text_from_dict</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">):</span>
+<div class="viewcode-block" id="multilingual_text_from_dict"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.multilingual_text_from_dict">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">multilingual_text_from_dict</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Produces a MultilingualText object out of a dict in the form:</span>
 
@@ -174,7 +174,7 @@
     <span class="k">return</span> <span class="n">TitelType</span><span class="p">(</span><span class="n">LocalisationCH_V1_MultilingualText</span><span class="p">(</span><span class="n">localized_texts</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="multilingual_uri_from_dict"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.multilingual_uri_from_dict">[docs]</a><span class="k">def</span> <span class="nf">multilingual_uri_from_dict</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">):</span>
+<div class="viewcode-block" id="multilingual_uri_from_dict"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.multilingual_uri_from_dict">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">multilingual_uri_from_dict</span><span class="p">(</span><span class="n">multilingual_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Produces a MultilingualText object out of a dict in the form:</span>
 
@@ -201,7 +201,7 @@
     <span class="k">return</span> <span class="n">TextImWebType</span><span class="p">(</span><span class="n">OeREBKRM_V2_0_MultilingualUri</span><span class="p">(</span><span class="n">localized_texts</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="office_record_to_oerebkrmtrsfr"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.office_record_to_oerebkrmtrsfr">[docs]</a><span class="k">def</span> <span class="nf">office_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">office_record</span><span class="p">):</span>
+<div class="viewcode-block" id="office_record_to_oerebkrmtrsfr"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.office_record_to_oerebkrmtrsfr">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">office_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">office_record</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Translates a ``pyramid_oereb`` office record object to an OeREBKRM_V2_0_Amt_Amt object.</span>
 
@@ -224,7 +224,7 @@
     <span class="k">return</span> <span class="n">amt</span></div>
 
 
-<div class="viewcode-block" id="document_record_to_oerebkrmtrsfr"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.document_record_to_oerebkrmtrsfr">[docs]</a><span class="k">def</span> <span class="nf">document_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">document_record</span><span class="p">):</span>
+<div class="viewcode-block" id="document_record_to_oerebkrmtrsfr"><a class="viewcode-back" href="../../../../../../interfaces.html#geolink2oereb.lib.interfaces.oerebkrmtrsfr.v2_0.generators.document_record_to_oerebkrmtrsfr">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">document_record_to_oerebkrmtrsfr</span><span class="p">(</span><span class="n">document_record</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Translates a ``pyramid_oereb`` document record object to an OeREBKRM_V2_0_Dokumente_Dokument object.</span>
 
