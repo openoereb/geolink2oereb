@@ -18,7 +18,7 @@ with open(os.path.join(here, 'requirements.txt')) as f:
 
 tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
-    'pytest==7.4.2',  # includes virtualenv
+    'pytest==7.4.4',  # includes virtualenv
     'pytest-cov'
 ]
 
